@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+                <img class="brand-logo img-responsive"/>
+        </div>
+        <div ng-controller="LoginController as loginVm">
+            <form ng-submit="loginVm.login()" class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" placeholder="email" ng-model="loginVm.newUser.email"/>
+                    <input type="password" class="form-control input-sm" placeholder="password" ng-model="loginVm.newUser.password"/>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Login</button>
+            </form>
+        </div>
+    </div>
+</nav>

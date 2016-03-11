@@ -1,0 +1,25 @@
+.brand-logo {
+    content: url("../images/proteus.png");
+    padding-top:10px;
+    padding-bottom:10px;
+    display:inline-block;
+}
+
+.header {
+    background-color: #064B74;
+    color:#7EC3E4;
+}
+
+.header-login {
+    width:auto;
+    float:right;
+    margin-top:16px;
+}
+
+.header-login input {
+    width:auto;
+    display:inline-block;
+}
+
+
+

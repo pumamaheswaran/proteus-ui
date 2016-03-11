@@ -1,0 +1,29 @@
+<div class="signup">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="well" ng-controller="SignUpController as signUpVm" style="margin-top:65px">
+                    <form ng-submit="signUpVm.signUp()">
+                        <fieldset class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="John" ng-model="signUpVm.newUser.firstName">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Doe"ng-model="signUpVm.newUser.lastName">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" placeholder="johndoe@example.com" ng-model="signUpVm.newUser.email">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="********" ng-model="signUpVm.newUser.password">
+                        </fieldset>
+                        <button class="btn btn-default btn-primary btn-block">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
