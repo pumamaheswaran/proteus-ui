@@ -1,5 +1,7 @@
-<div class="footer" ng-controller="FooterController as footerVm">
+<div class="footer navbar navbar-default navbar-fixed-bottom" ng-controller="FooterController as footerVm">
     <div class="container">
-        Copyright &copy; {{footerVm.date | date:'yyyy'}} Pravin Umamaheswaran
+        <div class="navbar-text navbar-right">
+            Copyright &copy; {{footerVm.date | date:'yyyy'}} Pravin Umamaheswaran
+        </div>
     </div>
 </div>

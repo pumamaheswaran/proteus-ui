@@ -5,5 +5,5 @@
     'use strict';
 
     angular
-        .module('io.egen.proteus',[]);
+        .module('io.egen.proteus',['ngRoute']);
 })();

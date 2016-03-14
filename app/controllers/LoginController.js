@@ -14,7 +14,7 @@
 
 
         function login() {
-            console.log(loginVm.newUser);
+
             userService
                 .login(loginVm.newUser)
                 .then(function(data) {

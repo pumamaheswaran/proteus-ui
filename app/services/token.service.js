@@ -13,32 +13,49 @@
         self.logout = logout;
         self.isAuthed = isAuthed;
         self.parseJwt = parseJwt;
+        self.getSubject = getSubject;
+
         function getToken() {
             return $window.localStorage['jwtToken'];
         }
 
         function setToken(token) {
             $window.localStorage['jwtToken'] = token;
+
         }
 
         function logout() {
             $window.localStorage.removeItem('jwtToken');
+
         }
 
         function isAuthed() {
             var token = self.getToken();
+            var returnValue;
             if(token) {
                 var params = self.parseJwt(token);
-                return Math.round(new Date().getTime() / 1000) <= params.exp;
+                //return Math.round(new Date().getTime() / 1000) <= params.exp;
+                returnValue = true;
             } else {
-                return false;
+                returnValue = false;
             }
+
+            return returnValue;
         }
 
         function parseJwt(token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace('-', '+').replace('_', '/');
             return JSON.parse($window.atob(base64));
+        }
+
+        function getSubject() {
+            var token = self.getToken();
+            if(token) {
+                var params = self.parseJwt(token);
+                return params.sub;
+            }
+            return null;
         }
     }
 })();
