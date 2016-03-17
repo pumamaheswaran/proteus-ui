@@ -1,0 +1,155 @@
+<div class="container" ng-controller="EditTitleController as etVm">
+
+    <div class="row page-header">
+        <div class="col-md-6">
+            <div class="text-left">
+                <h1>Edit/Delete Title</h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group" style="margin-top:25px">
+                <input type="text" class="form-control" placeholder="Search for..." ng-model="etVm.searchText">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="etVm.getTitleDetails()">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="etVm.errorFlag" class="alert alert-danger">
+        No title found for IMDB Id: {{etVm.searchText}}
+    </div>
+
+    <form ng-show="etVm.showFl" class="form-horizontal">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Year</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.year">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Rated</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.rated">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Released</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.released">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Runtime</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.runtime">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Genre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.genre">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Director</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.director">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Writer</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.writer">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Actors</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.actors">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Plot</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" ng-model="etVm.title.plot"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Language</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.language">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Country</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.country">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Awards</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.awards">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Poster</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.poster">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Metascore</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.metascore">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB Rating</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.imdbRating">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB Votes</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.imdbVotes">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB ID</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{etVm.title.imdbID}}</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="etVm.title.type">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-default" ng-click="etVm.editTitle()">Update</button>
+                <button type="submit" class="btn btn-danger" ng-click="etVm.deleteTitle()">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>

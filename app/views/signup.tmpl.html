@@ -1,8 +1,15 @@
-<div class="signup">
+<div class="signup" ng-controller="SignUpController as signUpVm">
     <div class="container-fluid">
+
+
+        <div class="alert alert-success alert-dismissible text-center" role="alert" ng-show="signUpVm.signUpSuccess">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            User Created. Please login.
+        </div>
+
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <div class="well" ng-controller="SignUpController as signUpVm">
+                <div class="well">
                     <form ng-submit="signUpVm.signUp()">
                         <fieldset class="form-group">
                             <label for="firstName">First Name</label>

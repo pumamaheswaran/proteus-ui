@@ -9,6 +9,7 @@
     function SignUpController(userService) {
         signUpVm = this;
         signUpVm.signUp = signUp;
+        signUpVm.signUpSuccess = false;
 
         function signUp() {
             console.log('Called!!!');
@@ -17,6 +18,7 @@
                 .signUp(signUpVm.newUser)
                 .then(function(data) {
                     console.log(data);
+                    signUpVm.signUpSuccess = true;
                 })
                 .catch(function(error) {
                     console.log(error);

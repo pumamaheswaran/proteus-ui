@@ -1,4 +1,108 @@
-<div class="container">
-    <img src="images/grey-movie-poster.jpg" style="max-width:200px;max-height:200px" class="image-responsive">
-    <h1>The Grey</h1>
+<div class="container" >
+
+    <div ng-controller="TitleDetailController as tdVm">
+        <div class="page-header text-right">
+            <h2>{{tdVm.title.title}}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <dl class="dl-horizontal">
+                    <dt class="col-sm-3">Title</dt>
+                    <dd class="col-sm-5">{{tdVm.title.title}}</dd>
+
+                    <dt class="col-sm-3">Year</dt>
+                    <dd class="col-sm-5">{{tdVm.title.year}}</dd>
+
+
+                    <dt class="col-sm-3">Rated</dt>
+                    <dd class="col-sm-5">{{tdVm.title.rated}}</dd>
+
+                    <dt class="col-sm-3">Released</dt>
+                    <dd class="col-sm-5">{{tdVm.title.released}}</dd>
+
+                    <dt class="col-sm-3">Runtime</dt>
+                    <dd class="col-sm-5">{{tdVm.title.runtime}}</dd>
+
+                    <dt class="col-sm-3">Genre</dt>
+                    <dd class="col-sm-5">{{tdVm.title.genre}}</dd>
+
+                    <dt class="col-sm-3">Director</dt>
+                    <dd class="col-sm-5">{{tdVm.title.director}}</dd>
+
+                    <dt class="col-sm-3">Writer</dt>
+                    <dd class="col-sm-5">{{tdVm.title.writer}}</dd>
+
+                    <dt class="col-sm-3">Actors</dt>
+                    <dd class="col-sm-5">{{tdVm.title.actors}}</dd>
+
+                    <dt class="col-sm-3">Plot</dt>
+                    <dd class="col-sm-5">{{tdVm.title.plot}}</dd>
+
+                    <dt class="col-sm-3">Language</dt>
+                    <dd class="col-sm-5">{{tdVm.title.language}}</dd>
+
+                    <dt class="col-sm-3">Country</dt>
+                    <dd class="col-sm-5">{{tdVm.title.country}}</dd>
+
+                    <dt class="col-sm-3">Awards</dt>
+                    <dd class="col-sm-5">{{tdVm.title.awards}}</dd>
+
+                    <dt class="col-sm-3">Metascore</dt>
+                    <dd class="col-sm-5">{{tdVm.title.metascore}}</dd>
+
+                    <dt class="col-sm-3">IMDB Rating</dt>
+                    <dd class="col-sm-5">{{tdVm.title.imdbRating}}</dd>
+
+                    <dt class="col-sm-3">IMDB Votes</dt>
+                    <dd class="col-sm-5">{{tdVm.title.imdbVotes}}</dd>
+
+                    <dt class="col-sm-3">IMDB Id</dt>
+                    <dd class="col-sm-5">{{tdVm.title.imdbID}}</dd>
+
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-5">{{tdVm.title.type}}</dd>
+
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-5"><a ng-href="http://www.imdb.com/title/{{tdVm.title.imdbID}}">IMDB Link to the movie</a></dd>
+                </dl>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="pull-right">
+                        <img ng-src="{{tdVm.title.poster}}" alt="..." class="image-responsive" style="max-width:360px">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right" ng-controller="RatingsController as ratingsVm">
+                        <form class="form-inline" ng-submit="ratingsVm.submitRating()">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="8.0" ng-model="ratingsVm.rating.rating">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="CommentsController as commentsVm">
+        <h4>Comments</h4>
+        <hr/>
+        <div class="well">
+            <form ng-submit="commentsVm.registerComment()" class="form-inline">
+                <div class="form-group">
+                    <input class="form-control input-md" type="text" placeholder="Post comment..." ng-model="commentsVm.comment.comment"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <hr/>
+            <div class="comment" ng-repeat="comment in commentsVm.comments">
+                <p><strong>Anonymous</strong>   <small>12:26AM 17th Dec 2016</small></p>
+                <p>{{comment.comment}}</p>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,136 @@
+<div class="container" ng-controller="AddTitleController as addTitleVm">
+    <div class="page-header">
+        <h1>Add Title</h1>
+    </div>
+    <form class="form-horizontal" ng-submit="addTitleVm.addTitle()">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Year</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.year">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Rated</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.rated">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Released</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.released">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Runtime</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.runtime">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Genre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.genre">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Director</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.director">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Writer</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.writer">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Actors</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.actors">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Plot</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" ng-model="addTitleVm.title.plot"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Language</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.language">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Country</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.country">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Awards</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.awards">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Poster</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.poster">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Metascore</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.metascore">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB Rating</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.imdbRating">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB Votes</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.imdbVotes">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IMDB ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.imdbID">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="" ng-model="addTitleVm.title.type">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Add Title</button>
+            </div>
+        </div>
+    </form>
+</div>

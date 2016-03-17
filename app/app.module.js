@@ -5,5 +5,5 @@
     'use strict';
 
     angular
-        .module('io.egen.proteus',['ngRoute']);
+        .module('io.egen.proteus',['ngRoute','ui.bootstrap']);
 })();

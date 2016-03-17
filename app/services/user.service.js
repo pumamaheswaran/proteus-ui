@@ -7,13 +7,14 @@
         .module('io.egen.proteus')
         .service('userService',userService);
 
-    function userService($http, $q, CONFIG){
+    function userService($http,CONFIG){
         var self = this;
 
         self.login = login;
         self.signUp = signUp;
 
-        function login(user){
+
+        function login(user,successFun, errorFun){
             console.log(user);
             var req = {
                 method: 'POST',
@@ -24,7 +25,7 @@
                 data: user
             }
             return $http(req)
-                .then(successFn, errorFn);
+                .then(successFun, errorFun);
         }
 
         function signUp(user){
@@ -48,7 +49,6 @@
 
         function errorFn(errorResponse) {
             console.log(errorResponse.status);
-            $q.reject(errorResponse.status);
         }
     }
 })();

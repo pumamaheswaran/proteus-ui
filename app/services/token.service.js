@@ -14,6 +14,7 @@
         self.isAuthed = isAuthed;
         self.parseJwt = parseJwt;
         self.getSubject = getSubject;
+        self.getRole = getRole;
 
         function getToken() {
             return $window.localStorage['jwtToken'];
@@ -26,11 +27,11 @@
 
         function logout() {
             $window.localStorage.removeItem('jwtToken');
-
         }
 
         function isAuthed() {
             var token = self.getToken();
+            //console.log(token);
             var returnValue;
             if(token) {
                 var params = self.parseJwt(token);
@@ -54,6 +55,15 @@
             if(token) {
                 var params = self.parseJwt(token);
                 return params.sub;
+            }
+            return null;
+        }
+
+        function getRole() {
+            var token = self.getToken();
+            if(token) {
+                var params = self.parseJwt(token);
+                return params.role;
             }
             return null;
         }

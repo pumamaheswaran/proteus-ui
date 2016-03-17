@@ -7,11 +7,22 @@
         .module('io.egen.proteus')
         .controller('HeaderController',HeaderController);
 
-    function HeaderController(tokenService) {
+    function HeaderController(tokenService,$window) {
         var headerVm = this;
         headerVm.isAuthed = isAuthed;
         headerVm.getSubject = getSubject;
         headerVm.logout = logout;
+        headerVm.isAdmin = isAdmin;
+
+        function isAdmin() {
+
+            if('admin' == tokenService.getRole()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
         function isAuthed() {
             return tokenService.isAuthed();
@@ -23,6 +34,7 @@
 
         function logout() {
             tokenService.logout();
+            $window.location.href='/proteus-ui/index.html#/login';
         }
     };
 })();

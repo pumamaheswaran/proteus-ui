@@ -23,7 +23,7 @@
                 method: 'GET',
                 url: CONFIG.API_END_POINT + '/api/title/' + imdbId,
                 headers: {
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 }
             }
             return $http(req)
@@ -38,7 +38,7 @@
                 url: CONFIG.API_END_POINT + '/api/title',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 },
                 data: title
             }
@@ -55,7 +55,7 @@
                 url: CONFIG.API_END_POINT + '/api/title/' + imdbId,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 },
                 data: title
             }
@@ -70,7 +70,7 @@
                 method: 'DELETE',
                 url: CONFIG.API_END_POINT + '/api/title/' + imdbId,
                 headers: {
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 }
             }
             return $http(req)
@@ -97,11 +97,12 @@
         function getTopRatedTitles() {
             //Get Method @ api/title
             //console.log(user);
+            console.log(tokenService.getToken());
             var req = {
                 method: 'GET',
                 url: CONFIG.API_END_POINT + '/api/title',
                 headers: {
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 }
             }
             return $http(req)

@@ -21,7 +21,7 @@
                 url: CONFIG.API_END_POINT + '/api/comments/' + imdbId,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 },
                 data: comment
             }
@@ -34,9 +34,9 @@
             console.log(imdbId);
             var req = {
                 method: 'GET',
-                url: CONFIG.API_END_POINT + '/api/comments',
+                url: CONFIG.API_END_POINT + '/api/comments/'+imdbId,
                 headers: {
-                    'Authentication': 'Bearer ' + tokenService.getToken()
+                    'Authorization': 'Bearer ' + tokenService.getToken()
                 }
             }
             return $http(req)
