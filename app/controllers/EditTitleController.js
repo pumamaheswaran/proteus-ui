@@ -13,6 +13,7 @@
         etVm.getTitleDetails = getTitleDetails;
         etVm.errorFl = false;
         etVm.showFl = false;
+        etVm.showSuccess = false;
         etVm.deleteTitle = deleteTitle;
 
         function init() {
@@ -29,6 +30,7 @@
             titleService.editTitle(etVm.title.imdbID, etVm.title)
                 .then(function(data){
                     etVm.title = data;
+                    etVm.showSuccess = true;
                 },
                 function(error){
                     console.log(error);
@@ -46,7 +48,7 @@
                     else {
                         etVm.showFl = false;
                         etVm.errorFl = true;
-                        console.log(error);
+                        console.log(data);
                     }
 
                 },
@@ -60,6 +62,7 @@
             titleService.deleteTitle(etVm.title.imdbID)
                 .then(function(data) {
                    console.log(data);
+                    etVm.showSuccess = true;
                 }, function(error){
                     console.log(error);
                 });

@@ -31,7 +31,7 @@
     <div ng-repeat="chunk in titleVm.titles.slice(((titleVm.currentPage-1)*titleVm.itemsPerPage), ((titleVm.currentPage)*titleVm.itemsPerPage))" class="row">
         <div ng-repeat="title in chunk | filter:searchText | orderBy: titleVm.sortOrder.by: titleVm.sortOrder.reverse" class="col-md-3 opaque">
             <h4 class="text-center">{{title.title}}</h4>
-            <a href="#/title/title.imdbID">
+            <a ng-href="#/title/{{title.imdbID}}">
                 <img ng-src="{{title.poster}}" class="image-responsive center-block" style="max-width:260px">
             </a>
         </div>

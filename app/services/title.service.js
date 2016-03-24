@@ -15,6 +15,7 @@
         self.deleteTitle = deleteTitle;
         self.rateTitle = rateTitle;
         self.getTopRatedTitles = getTopRatedTitles;
+        self.getCatalog = getCatalog;
 
         function getTitleDetails(imdbId) {
             //Get request @api/title/{id}
@@ -109,13 +110,28 @@
                 .then(successFn, errorFn);
         }
 
+        function getCatalog() {
+            //Get Method @ api/title/all
+            //console.log(user);
+            console.log(tokenService.getToken());
+            var req = {
+                method: 'GET',
+                url: CONFIG.API_END_POINT + '/api/title/all',
+                headers: {
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                }
+            }
+            return $http(req)
+                .then(successFn, errorFn);
+        }
+
         function successFn(response) {
             return response.data;
         }
 
         function errorFn(errorResponse) {
             console.log(errorResponse.status);
-            $q.reject(errorResponse.status);
+            return $q.reject(errorResponse.status);
         }
     }
 })();

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="TitleController as titleVm">
+<div class="container" ng-controller="CatalogController as catalogVm">
     <div class="row page-header">
         <div class="col-md-6">
             <div class="text-left">
@@ -12,9 +12,9 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="" ng-click="titleVm.sortOrder.by='year'; titleVm.sortOrder.reverse = !titleVm.sortOrder.reverse;">Year</a></li>
-                    <li><a href="" ng-click="titleVm.sortOrder.by='rating'; titleVm.sortOrder.reverse = !titleVm.sortOrder.reverse;">Rating</a></li>
-                    <li><a href="" ng-click="titleVm.sortOrder.by='votes'; titleVm.sortOrder.reverse = !titleVm.sortOrder.reverse;">Votes</a></li>
+                    <li><a href="" ng-click="catalogVm.sortOrder.by='year'; catalogVm.sortOrder.reverse = !catalogVm.sortOrder.reverse;">Year</a></li>
+                    <li><a href="" ng-click="catalogVm.sortOrder.by='rating'; catalogVm.sortOrder.reverse = !catalogVm.sortOrder.reverse;">Rating</a></li>
+                    <li><a href="" ng-click="catalogVm.sortOrder.by='votes'; catalogVm.sortOrder.reverse = !catalogVm.sortOrder.reverse;">Votes</a></li>
                 </ul>
             </div>
         </div>
@@ -28,15 +28,15 @@
         </div>
     </div>
 
-    <div ng-repeat="chunk in titleVm.titles.slice(((titleVm.currentPage-1)*titleVm.itemsPerPage), ((titleVm.currentPage)*titleVm.itemsPerPage))" class="row">
-        <div ng-repeat="title in chunk | filter:searchText | orderBy: titleVm.sortOrder.by: titleVm.sortOrder.reverse" class="col-md-3 opaque">
+    <div ng-repeat="chunk in catalogVm.titles.slice(((catalogVm.currentPage-1)*catalogVm.itemsPerPage), ((catalogVm.currentPage)*catalogVm.itemsPerPage))" class="row">
+        <div ng-repeat="title in chunk | filter:searchText | orderBy: catalogVm.sortOrder.by: catalogVm.sortOrder.reverse" class="col-md-3 opaque">
             <h4 class="text-center">{{title.title}}</h4>
-            <a href="#/title/title.imdbID">
+            <a ng-href="#/title/{{title.imdbID}}">
                 <img ng-src="{{title.poster}}" class="image-responsive center-block" style="max-width:260px">
             </a>
         </div>
     </div>
 
-    <pagination total-items="titleVm.totalItems" ng-model="titleVm.currentPage" class="pagination-sm" items-per-page="8"></pagination>
+    <pagination total-items="catalogVm.totalItems" ng-model="catalogVm.currentPage" class="pagination-sm" items-per-page="8"></pagination>
 
 </div>
